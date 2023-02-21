@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -9,12 +8,13 @@ import 'package:xlo_mobx/store/category_store.dart';
 import '../../components/error_box/error_box.dart';
 import '../../models/category.dart';
 class CategoryScreen extends StatelessWidget {
-  CategoryScreen({Key? key, this.showAll = true}) : super(key: key);
-  final Category selected = Category(id: "*");
+  CategoryScreen({Key? key, this.showAll = true, this.selected = null}) : super(key: key);
+  final Category? selected ;
   final bool showAll;
   CategoryStore store = GetIt.I<CategoryStore>();
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Categorias"),
@@ -40,7 +40,9 @@ class CategoryScreen extends StatelessWidget {
               final category = categories[index];
               return InkWell(
                 onTap: (){
-                  Navigator.pop(context);
+                  print("NA TELAAA CATEGORYYY");
+                  print(category!.description);
+                  Navigator.pop(context,category);
                 },
                 child: Container(
                   alignment: Alignment.center,
