@@ -1,0 +1,7 @@
+class IBGERepository {
+  getUFListFromApi() {
+
+  }
+  getCityFromApi() {}
+
+}
